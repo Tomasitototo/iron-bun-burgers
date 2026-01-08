@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import MenuPage from './pages/MenuPage';
+import ScrollToTop from './components/ScrollToTop';
+
+import FloatingButtons from './components/FloatingButtons';
+
+// Feature wrapper component to handle conditional footer logic
+const AppContent = () => {
+  const location = useLocation();
+  const isMenuPage = location.pathname === '/menu';
+
+  return (
+    <div className="min-h-screen bg-bgLight antialiased selection:bg-primary selection:text-white flex flex-col">
+      <FloatingButtons />
+      <ScrollToTop />
+      <Header />
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
+        </Routes>
+      </main>
+      {!isMenuPage && <Footer />}
+    </div>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
