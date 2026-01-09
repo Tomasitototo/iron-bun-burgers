@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const FeaturedBurgers = () => {
     return (
@@ -11,17 +12,29 @@ const FeaturedBurgers = () => {
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
 
                     {/* Left Side: Big Typography Title */}
-                    <div className="lg:w-1/2">
+                    <motion.div
+                        initial={{ opacity: 0, x: -100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="lg:w-1/2"
+                    >
                         <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-white">
                             DESCUBRÍ <br />
                             <span className="text-white">NUESTROS</span> <br />
                             <span className="text-primary italic">SABORES</span>
                         </h2>
                         <div className="h-2 w-32 bg-primary mt-8"></div>
-                    </div>
+                    </motion.div>
 
                     {/* Right Side: Description & Button */}
-                    <div className="lg:w-1/2 max-w-xl">
+                    <motion.div
+                        initial={{ opacity: 0, x: 100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="lg:w-1/2 max-w-xl"
+                    >
                         <p className="text-xl md:text-2xl text-gray-300 font-light mb-8 leading-relaxed">
                             Nuestro menú reúne una selección de hamburguesas artesanales elaboradas con carne premium, panes horneados a diario y combinaciones de ingredientes pensadas para resaltar el sabor en cada detalle. Cada receta equilibra técnica, producto y creatividad para ofrecer una experiencia auténtica y memorable.
                         </p>
@@ -34,7 +47,7 @@ const FeaturedBurgers = () => {
                                 Ver Menú Completo
                             </button>
                         </Link>
-                    </div>
+                    </motion.div>
 
                 </div>
             </div>

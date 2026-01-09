@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { RevealText } from './RevealText';
+
 const Contact = () => {
     // Links
     const whatsappLink = "https://wa.me/5492920123456";
@@ -16,7 +18,7 @@ const Contact = () => {
             <div className="container mx-auto px-6 relative z-10">
                 {/* Title */}
                 <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 tracking-tight">
-                    TU <span className="text-primary">IRON BUN</span> TE ESPERA
+                    TU <RevealText text="IRON BUN" image="/images/bite_action.png" className="text-primary" /> TE ESPERA
                 </h2>
 
                 <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">

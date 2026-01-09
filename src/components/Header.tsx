@@ -35,7 +35,7 @@ const Header = () => {
             <div className="container mx-auto px-4 md:px-8 flex items-center justify-between h-12 md:h-14">
 
                 {/* LEFT: Logo - Compacting further */}
-                <div className="flex-shrink-0 h-full flex items-center py-1">
+                <div className="flex-1 flex justify-start h-full items-center py-1">
                     <Link to="/" onClick={() => window.scrollTo(0, 0)} className="block h-full">
                         <img
                             src="/img/logo-ironbun.png"
@@ -46,7 +46,7 @@ const Header = () => {
                 </div>
 
                 {/* CENTER: Text Links - Smaller fonts */}
-                <div className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2 h-full">
+                <div className="hidden md:flex flex-none items-center justify-center gap-8 h-full">
                     <button
                         onClick={handleOrderClick}
                         className="text-primary font-black uppercase tracking-widest text-xs md:text-sm hover:text-white transition-colors hover:scale-105 transform duration-200"
@@ -63,7 +63,7 @@ const Header = () => {
                 </div>
 
                 {/* RIGHT: Social Icons - Compact (w-4) */}
-                <div className="flex items-center gap-4">
+                <div className="flex-1 flex justify-end items-center gap-4">
                     {/* Instagram */}
                     <a
                         href="https://www.instagram.com"

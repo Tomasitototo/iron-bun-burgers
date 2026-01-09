@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnimatedGroup } from './ui/AnimatedGroup';
 
 const Philosophy = () => {
     const features = [
@@ -31,9 +32,12 @@ const Philosophy = () => {
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
 
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <AnimatedGroup
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    preset="blur-slide"
+                >
                     {features.map((feature, index) => (
-                        <div key={index} className="group flex flex-col items-center justify-center text-center p-6 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-primary/20 cursor-default">
+                        <div key={index} className="group flex flex-col items-center justify-center text-center p-6 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-primary/20 cursor-default h-full">
                             {/* Emoji Container */}
                             <div className="text-5xl mb-6 transform group-hover:scale-125 group-hover:rotate-6 transition-transform duration-300 filter drop-shadow-lg">
                                 {feature.icon}
@@ -48,7 +52,7 @@ const Philosophy = () => {
                             </p>
                         </div>
                     ))}
-                </div>
+                </AnimatedGroup>
             </div>
         </section>
     );
